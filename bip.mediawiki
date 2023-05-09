@@ -148,6 +148,101 @@ OP_ENDIF
 == DRC-20 ==
 
 Cardinal theory can facilitate fungibility on dogecoin
-+ Create a brc-20 with the deploy function
-+ Mint an amount of brc-20's with the mint function
-+ Transfer an amount of brc-20's with the transfer function. 
+
+<pre>
+ Create a drc-20 with the deploy function
+ Mint an amount of drc-20's with the mint function
+ Transfer an amount of drc-20's with the transfer function. 
+</pre>
+
+=== Deploy drc-20 ===
+
+Inscribe the deploy function to you ordinal compatible wallet with the desired drc-20 parameters set.
+It's a example of deploy script as following:
+<pre>
+{ 
+  "p": "drc-20",
+  "op": "deploy",
+  "tick": "ethf",
+  "max": "1000000",
+  "lim": "100"
+}
+</pre>
+
+{| class="wikitable" style="margin:auto"
+|+ command parameter description 
+|-
+! Key !! Require !! Description
+|-
+| p || yes || Protocol: Helps other systems identify and process drc-20 events
+|-
+| op || yes || Operation: Type of event (Deploy, Mint, Transfer)
+|-
+| tick || yes || Ticker: letter identifier of the drc-20, less or equal to 8 charaters
+|-
+| max || yes || Max supply: set max supply of the drc-20
+|-
+| lim || no || Mint limit: If letting users mint to themsleves, limit per cardinal
+|-
+| dec || no || Decimals: set decimal precision, default to 18
+|-
+| burn || no || burn some token 
+|-
+| func || no || specific rules such as mining rules, rewards rules ...
+|}
+
+=== Mint drc-20 ===
+
+Inscribe the mint function to your cardinal compatible wallet. Make sure the ticker matches either a) the drc-20 you deployed in step 1, or b) any drc-20 that has yet to reach its fully diluted supply. Also if the drc-20 has a mint limit, make sure not to surpass this.
+
+It's a example of mint script as following:
+<pre>
+{ 
+  "p": "drc-20",
+  "op": "mint",
+  "tick": "ethf",
+  "amt": "100"
+}
+</pre>
+
+{| class="wikitable" style="margin:auto"
+|+ command parameter description 
+|-
+! Key !! Require !! Description
+|-
+| p || yes || Protocol: Helps other systems identify and process drc-20 events
+|-
+| op || yes || Operation: Type of event (Deploy, Mint, Transfer)
+|-
+| tick || yes || Ticker: letter identifier of the drc-20, less or equal to 8 charaters
+|-
+| amt || yes || Amount to mint: States the amount of the drc-20 to mint. Has to be less than "lim" above if stated
+|}
+
+=== Transfer drc-20 ===
+
+Inscribe the transfer function to your ordinal compatible wallet. Make sure the transfer function inscription information is valid before inscribing 
+
+It's a example of transfer script as following:
+<pre>
+{ 
+  "p": "drc-20",
+  "op": "transfer",
+  "tick": "ethf",
+  "amt": "230"
+}
+</pre>
+
+{| class="wikitable" style="margin:auto"
+|+ command parameter description 
+|-
+! Key !! Require !! Description
+|-
+| p || yes || Protocol: Helps other systems identify and process drc-20 events
+|-
+| op || yes || Operation: Type of event (Deploy, Mint, Transfer)
+|-
+| tick || yes || Ticker: letter identifier of the drc-20, less or equal to 8 charaters
+|-
+| amt || yes || Amount to transfer: States the amount of the drc-20 to transfer.
+|}
