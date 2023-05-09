@@ -164,7 +164,7 @@ It's a example of deploy script as following:
 { 
   "p": "drc-20",
   "op": "deploy",
-  "tick": "ethf",
+  "tick": "dogewow",
   "max": "1000000",
   "lim": "100"
 }
@@ -201,7 +201,7 @@ It's a example of mint script as following:
 { 
   "p": "drc-20",
   "op": "mint",
-  "tick": "ethf",
+  "tick": "dogewow",
   "amt": "100"
 }
 </pre>
@@ -229,7 +229,7 @@ It's a example of transfer script as following:
 { 
   "p": "drc-20",
   "op": "transfer",
-  "tick": "ethf",
+  "tick": "dogewow",
   "amt": "230"
 }
 </pre>
